@@ -216,6 +216,7 @@ pub struct TypeDecl {
     pub name: CascadeString,
     pub inherits: Vec<CascadeString>,
     pub is_virtual: bool,
+    pub is_extension: bool,
     pub expressions: Vec<Expression>,
     pub annotations: Annotations,
 }
@@ -230,9 +231,14 @@ impl TypeDecl {
             name,
             inherits,
             is_virtual: false,
+            is_extension: false,
             expressions: exprs,
             annotations: Annotations::new(),
         }
+    }
+
+    pub fn set_extend(&mut self) {
+        self.is_extension = true;
     }
 }
 
